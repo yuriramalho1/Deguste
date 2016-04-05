@@ -7,9 +7,85 @@
 
 <ui:composition template="/templates/common.xhtml">
 	<ui:define name="body">
+
+
+
+
+		<div style="float: left; width: 40%;">
+		
+		
+					<div id="divLogo" style="height: 320px; width: 589px; margin: auto !important; margin-top: 100px !important;">
+			
+			<a href="/deguste">
+				<img src="/deguste/imagem/LogoDguste.png" width="320" height="100" alt="logo D'guste" />
+			</a>
+		
+			<p class="titulo">EMPRESA DE VENDA DE ERVAS E CONDIMENTOS</p>
+			<p class="desenvolvedor">
+				<strong> SGA </strong> - Sistema de Gerencia de Almoxarifado
+			</p>
+			</div>
+		</div>
+
+
+
+
+		<div style="float: right; width: 60%">
+				<h:form acceptcharset="ISO-8859-1" id="formLogin" >
+
+				<div id="divLogin"
+					style="height: 320px; width: 289px; margin: auto !important; margin-top: 100px !important;">
+					<h2 class="acessoSistema">Acesso ao Sistema</h2>
+
+					<p:spacer height="6px !important" />
+					
+					<p:messages  id="messageLogin"   closable="true" />
+					
+					<p:defaultCommand target="buttonL"/>
+					
+					<h:panelGrid columns="1">
+						<h:panelGrid>
+							<p:outputLabel styleClass="outputLogin" value="LOGIN" />
+							<b:inputText styleClass="inputLogin" required="true"
+								placeholder="Digite seu Login" requiredMessage="O campo login está em branco"
+								 value="#{loginBean.usuario.login}" />
+						</h:panelGrid>
+					</h:panelGrid>
+
+					<h:panelGrid columns="1">
+						<h:panelGrid>
+							<p:outputLabel styleClass="outputLogin" value="SENHA" />
+							<p:password styleClass="senhaInput" required="true" value="#{loginBean.usuario.senha}"
+								placeholder="Digite sua Senha" requiredMessage="O campo senha está em branco" />
+						</h:panelGrid>
+					</h:panelGrid>
+
+					<h:panelGrid columns="1">
+						<h:panelGrid>
+							<p:commandLink value="Recuperar Senha" />
+						</h:panelGrid>
+					</h:panelGrid>
+
+			
+			
+					<h:panelGrid columns="1">
+						<h:panelGrid>
+							<b:commandButton styleClass="botaoLogar" ajax="true" look="primary" id="buttonL"
+								actionListener="#{loginBean.logar()}"  action="#{loginBean.paginaRed()}" 
+								update="@next, formLogin:messageLogin"  value="Entrar" />
+						</h:panelGrid>
+					</h:panelGrid>
+
+
+
+				</div>
+			</h:form>
+		</div>
+
+
+		<div style="clear: both"></div>
 	
 
-	
 	</ui:define>
 </ui:composition>
 </html>

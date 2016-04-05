@@ -9,7 +9,7 @@
 <h:form styleClass="navbar-form navbar-right"
 		acceptcharset="ISO-8859-1">
 
-		<b:navBar  brandHref="#{request.contextPath}/login.jsf"
+		<b:navBar  brandHref="#{request.contextPath}/login.jsf" rendered="#{sessionBean.loggedIn()}"
 			inverse="true" fixed="top" >
 
 			<b:navbarLinks >

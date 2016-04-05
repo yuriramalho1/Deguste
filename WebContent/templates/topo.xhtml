@@ -7,10 +7,36 @@
 	xmlns:p="http://primefaces.org/ui">
 
 	<div id="topo">
+	
 
 		<div style="clear: both"></div>
 
-		<ui:include src="menu.xhtml" />
+			<div id="tituloTopo">
+
+			<ui:include src="menu.xhtml" />
+			<div id="divInfoServidor">
+				<h:form id="infoServidor" rendered="#{sessionBean.loggedIn()}"
+					styleClass="textoPequeno">
+					<h:outputText value="Seja bem vindo(a) " />
+					<h:outputText value="#{sessionBean.nomeUsuarioLogado()}"
+						style="padding: 0px 5px 0px 5px; font-weight: bold" />
+					<img src="/cemitech/imagem/key.png" align="middle"
+						style="margin-bottom: 6px;" />
+					<a href="/cemitech/pages/alterarSenha.jsf">ALTERAR SENHA</a>
+					<img src="/cemitech/imagem/door_out.png" align="middle"
+						style="margin-bottom: 6px; padding-left: 15px; padding-right: 5px" />
+					<h:commandLink value="SAIR" action="#{sessionBean.logout()}" />
+
+				</h:form>
+
+				<h:panelGroup rendered="#{sessionBean.loggedIn()}">
+					<h:outputText styleClass="textoPequeno" value="Sua sessão irá expirar em: " />
+					<h:outputText styleClass="textoPequeno" value="" id="sessaoUsuario" />
+				</h:panelGroup>
+
+			</div>
+
+		</div>
 
 
 	</div>
